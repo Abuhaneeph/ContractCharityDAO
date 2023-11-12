@@ -18,17 +18,19 @@ contract FundRaiser is Ownable {
     // Events
     event fundsSentToCharity(address indexed _address, uint256 _amount);
     event charityFunded(address indexed _address, uint256 _amount);
-    event newCharityAllowed(address indexed _address, bytes32 _name);
+    event newCharityAllowed(address indexed _address, bytes32 _name, bytes32 _category); // Updated event
 
     // Struct to represent an allowed charity
     struct allowedCharity {
         uint256 charityBalance;
         bytes32 charityName;
+        bytes32 category; // New field for the category
         bool exists;
     }
 
     // Mapping to store allowed charities
     mapping(address => allowedCharity) public allowedCharities;
+    address[] public addressArray; // New array to track signed-up charities
 
     /**
      * @dev Sends funds to an approved charity.
@@ -58,20 +60,25 @@ contract FundRaiser is Ownable {
      * @dev Allows a new charity to participate in the DAO.
      * @param _charityName The name of the new charity.
      * @param _address The address of the new charity.
+     * @param _category The category of the new charity. Added parameter.
      * @notice Only accessible by the DAO.
      */
-    function allowNewCharity(string memory _charityName, address _address) public onlyOwner {
+    function allowNewCharity(string memory _charityName, address _address, string memory _category) public onlyOwner {
         // Check if the charity name exceeds the allowed length
         if (bytes(_charityName).length > 24) {
             revert charityNameToLong();
         }
 
-        // Mark the charity as allowed and set its name
+        // Mark the charity as allowed and set its name and category
         allowedCharities[_address].exists = true;
         allowedCharities[_address].charityName = bytes32(bytes(_charityName));
+        allowedCharities[_address].category = bytes32(bytes(_category));
 
-        // Emits the event
-        emit newCharityAllowed(_address, bytes32(bytes(_charityName)));
+        // Add the charity address to the array
+        addressArray.push(_address);
+
+        // Emits the event with the category
+        emit newCharityAllowed(_address, bytes32(bytes(_charityName)), bytes32(bytes(_category)));
     }
 
     /**
@@ -117,6 +124,38 @@ contract FundRaiser is Ownable {
             revert addressNotAllowed();
         }
         return allowedCharities[_address].charityBalance;
+    }
+
+    /**
+     * @dev Returns the list of signed-up charities with their category.
+     * @return Arrays of addresses, names, and categories.
+     */
+    function getCharitiesWithCategory() public view returns (address[] memory, bytes32[] memory, bytes32[] memory) {
+        uint256 charityCount = 0;
+        // Count the number of signed up charities
+        for (uint256 i = 0; i < addressArray.length; i++) {
+            if (allowedCharities[addressArray[i]].exists) {
+                charityCount++;
+            }
+        }
+
+        // Initialize arrays to store charity data
+        address[] memory addresses = new address[](charityCount);
+        bytes32[] memory names = new bytes32[](charityCount);
+        bytes32[] memory categories = new bytes32[](charityCount);
+
+        // Populate arrays with charity data
+        uint256 index = 0;
+        for (uint256 i = 0; i < addressArray.length; i++) {
+            if (allowedCharities[addressArray[i]].exists) {
+                addresses[index] = addressArray[i];
+                names[index] = allowedCharities[addressArray[i]].charityName;
+                categories[index] = allowedCharities[addressArray[i]].category;
+                index++;
+            }
+        }
+
+        return (addresses, names, categories);
     }
 
     /**
