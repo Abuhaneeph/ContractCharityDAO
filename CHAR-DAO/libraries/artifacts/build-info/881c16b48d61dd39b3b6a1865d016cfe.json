@@ -1,0 +1,1300 @@
+{
+	"id": "881c16b48d61dd39b3b6a1865d016cfe",
+	"_format": "hh-sol-build-info-1",
+	"solcVersion": "0.8.21",
+	"solcLongVersion": "0.8.21+commit.d9974bed",
+	"input": {
+		"language": "Solidity",
+		"sources": {
+			"Voting/libraries/Models.sol": {
+				"content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.17;\n\nimport \"./Enums.sol\";\n\nlibrary Models {\n\n    struct Proposal {\n        string metadata;\n        uint256 createdOn;\n        uint256 startedOn;\n        uint256 endedOn;\n        uint256 executedOn;\n        address creator;\n        address[] voters;\n        string treasurySummary;\n    }\n\n    struct TreasureHistory {\n        uint256 amount;\n        uint256 timestamp;\n        string summary;\n        uint256 direction;\n        address from;\n        address to;\n    }\n\n}"
+			},
+			"Voting/libraries/Enums.sol": {
+				"content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.17;\n\nlibrary Enums {\n\n    enum VoteEntry {\n        Agree,\n        Disagree,\n        Abstain\n    }\n\n}"
+			}
+		},
+		"settings": {
+			"optimizer": {
+				"enabled": false,
+				"runs": 200
+			},
+			"outputSelection": {
+				"*": {
+					"": [
+						"ast"
+					],
+					"*": [
+						"abi",
+						"metadata",
+						"devdoc",
+						"userdoc",
+						"storageLayout",
+						"evm.legacyAssembly",
+						"evm.bytecode",
+						"evm.deployedBytecode",
+						"evm.methodIdentifiers",
+						"evm.gasEstimates",
+						"evm.assembly"
+					]
+				}
+			}
+		}
+	},
+	"output": {
+		"contracts": {
+			"Voting/libraries/Enums.sol": {
+				"Enums": {
+					"abi": [],
+					"devdoc": {
+						"kind": "dev",
+						"methods": {},
+						"version": 1
+					},
+					"evm": {
+						"assembly": "    /* \"Voting/libraries/Enums.sol\":58:153  library Enums {... */\n  dataSize(sub_0)\n  dataOffset(sub_0)\n  0x0b\n  dup3\n  dup3\n  dup3\n  codecopy\n  dup1\n  mload\n  0x00\n  byte\n  0x73\n  eq\n  tag_1\n  jumpi\n  mstore(0x00, 0x4e487b7100000000000000000000000000000000000000000000000000000000)\n  mstore(0x04, 0x00)\n  revert(0x00, 0x24)\ntag_1:\n  mstore(0x00, address)\n  0x73\n  dup2\n  mstore8\n  dup3\n  dup2\n  return\nstop\n\nsub_0: assembly {\n        /* \"Voting/libraries/Enums.sol\":58:153  library Enums {... */\n      eq(address, deployTimeAddress())\n      mstore(0x40, 0x80)\n      0x00\n      dup1\n      revert\n\n    auxdata: 0xa264697066735822122072ec85b0111bea091c33febf7132d41683a7ed1bbc6a028e44c7697efab0d77664736f6c63430008150033\n}\n",
+						"bytecode": {
+							"functionDebugData": {},
+							"generatedSources": [],
+							"linkReferences": {},
+							"object": "6055604b600b8282823980515f1a607314603f577f4e487b71000000000000000000000000000000000000000000000000000000005f525f60045260245ffd5b305f52607381538281f3fe730000000000000000000000000000000000000000301460806040525f80fdfea264697066735822122072ec85b0111bea091c33febf7132d41683a7ed1bbc6a028e44c7697efab0d77664736f6c63430008150033",
+							"opcodes": "PUSH1 0x55 PUSH1 0x4B PUSH1 0xB DUP3 DUP3 DUP3 CODECOPY DUP1 MLOAD PUSH0 BYTE PUSH1 0x73 EQ PUSH1 0x3F JUMPI PUSH32 0x4E487B7100000000000000000000000000000000000000000000000000000000 PUSH0 MSTORE PUSH0 PUSH1 0x4 MSTORE PUSH1 0x24 PUSH0 REVERT JUMPDEST ADDRESS PUSH0 MSTORE PUSH1 0x73 DUP2 MSTORE8 DUP3 DUP2 RETURN INVALID PUSH20 0x0 ADDRESS EQ PUSH1 0x80 PUSH1 0x40 MSTORE PUSH0 DUP1 REVERT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 PUSH19 0xEC85B0111BEA091C33FEBF7132D41683A7ED1B 0xBC PUSH11 0x28E44C7697EFAB0D77664 PUSH20 0x6F6C634300081500330000000000000000000000 ",
+							"sourceMap": "58:95:0:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+						},
+						"deployedBytecode": {
+							"functionDebugData": {},
+							"generatedSources": [],
+							"immutableReferences": {},
+							"linkReferences": {},
+							"object": "730000000000000000000000000000000000000000301460806040525f80fdfea264697066735822122072ec85b0111bea091c33febf7132d41683a7ed1bbc6a028e44c7697efab0d77664736f6c63430008150033",
+							"opcodes": "PUSH20 0x0 ADDRESS EQ PUSH1 0x80 PUSH1 0x40 MSTORE PUSH0 DUP1 REVERT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 PUSH19 0xEC85B0111BEA091C33FEBF7132D41683A7ED1B 0xBC PUSH11 0x28E44C7697EFAB0D77664 PUSH20 0x6F6C634300081500330000000000000000000000 ",
+							"sourceMap": "58:95:0:-:0;;;;;;;;"
+						},
+						"gasEstimates": {
+							"creation": {
+								"codeDepositCost": "17000",
+								"executionCost": "92",
+								"totalCost": "17092"
+							}
+						},
+						"legacyAssembly": {
+							".code": [
+								{
+									"begin": 58,
+									"end": 153,
+									"name": "PUSH #[$]",
+									"source": 0,
+									"value": "0000000000000000000000000000000000000000000000000000000000000000"
+								},
+								{
+									"begin": 58,
+									"end": 153,
+									"name": "PUSH [$]",
+									"source": 0,
+									"value": "0000000000000000000000000000000000000000000000000000000000000000"
+								},
+								{
+									"begin": 58,
+									"end": 153,
+									"name": "PUSH",
+									"source": 0,
+									"value": "B"
+								},
+								{
+									"begin": 58,
+									"end": 153,
+									"name": "DUP3",
+									"source": 0
+								},
+								{
+									"begin": 58,
+									"end": 153,
+									"name": "DUP3",
+									"source": 0
+								},
+								{
+									"begin": 58,
+									"end": 153,
+									"name": "DUP3",
+									"source": 0
+								},
+								{
+									"begin": 58,
+									"end": 153,
+									"name": "CODECOPY",
+									"source": 0
+								},
+								{
+									"begin": 58,
+									"end": 153,
+									"name": "DUP1",
+									"source": 0
+								},
+								{
+									"begin": 58,
+									"end": 153,
+									"name": "MLOAD",
+									"source": 0
+								},
+								{
+									"begin": 58,
+									"end": 153,
+									"name": "PUSH",
+									"source": 0,
+									"value": "0"
+								},
+								{
+									"begin": 58,
+									"end": 153,
+									"name": "BYTE",
+									"source": 0
+								},
+								{
+									"begin": 58,
+									"end": 153,
+									"name": "PUSH",
+									"source": 0,
+									"value": "73"
+								},
+								{
+									"begin": 58,
+									"end": 153,
+									"name": "EQ",
+									"source": 0
+								},
+								{
+									"begin": 58,
+									"end": 153,
+									"name": "PUSH [tag]",
+									"source": 0,
+									"value": "1"
+								},
+								{
+									"begin": 58,
+									"end": 153,
+									"name": "JUMPI",
+									"source": 0
+								},
+								{
+									"begin": 58,
+									"end": 153,
+									"name": "PUSH",
+									"source": 0,
+									"value": "4E487B7100000000000000000000000000000000000000000000000000000000"
+								},
+								{
+									"begin": 58,
+									"end": 153,
+									"name": "PUSH",
+									"source": 0,
+									"value": "0"
+								},
+								{
+									"begin": 58,
+									"end": 153,
+									"name": "MSTORE",
+									"source": 0
+								},
+								{
+									"begin": 58,
+									"end": 153,
+									"name": "PUSH",
+									"source": 0,
+									"value": "0"
+								},
+								{
+									"begin": 58,
+									"end": 153,
+									"name": "PUSH",
+									"source": 0,
+									"value": "4"
+								},
+								{
+									"begin": 58,
+									"end": 153,
+									"name": "MSTORE",
+									"source": 0
+								},
+								{
+									"begin": 58,
+									"end": 153,
+									"name": "PUSH",
+									"source": 0,
+									"value": "24"
+								},
+								{
+									"begin": 58,
+									"end": 153,
+									"name": "PUSH",
+									"source": 0,
+									"value": "0"
+								},
+								{
+									"begin": 58,
+									"end": 153,
+									"name": "REVERT",
+									"source": 0
+								},
+								{
+									"begin": 58,
+									"end": 153,
+									"name": "tag",
+									"source": 0,
+									"value": "1"
+								},
+								{
+									"begin": 58,
+									"end": 153,
+									"name": "JUMPDEST",
+									"source": 0
+								},
+								{
+									"begin": 58,
+									"end": 153,
+									"name": "ADDRESS",
+									"source": 0
+								},
+								{
+									"begin": 58,
+									"end": 153,
+									"name": "PUSH",
+									"source": 0,
+									"value": "0"
+								},
+								{
+									"begin": 58,
+									"end": 153,
+									"name": "MSTORE",
+									"source": 0
+								},
+								{
+									"begin": 58,
+									"end": 153,
+									"name": "PUSH",
+									"source": 0,
+									"value": "73"
+								},
+								{
+									"begin": 58,
+									"end": 153,
+									"name": "DUP2",
+									"source": 0
+								},
+								{
+									"begin": 58,
+									"end": 153,
+									"name": "MSTORE8",
+									"source": 0
+								},
+								{
+									"begin": 58,
+									"end": 153,
+									"name": "DUP3",
+									"source": 0
+								},
+								{
+									"begin": 58,
+									"end": 153,
+									"name": "DUP2",
+									"source": 0
+								},
+								{
+									"begin": 58,
+									"end": 153,
+									"name": "RETURN",
+									"source": 0
+								}
+							],
+							".data": {
+								"0": {
+									".auxdata": "a264697066735822122072ec85b0111bea091c33febf7132d41683a7ed1bbc6a028e44c7697efab0d77664736f6c63430008150033",
+									".code": [
+										{
+											"begin": 58,
+											"end": 153,
+											"name": "PUSHDEPLOYADDRESS",
+											"source": 0
+										},
+										{
+											"begin": 58,
+											"end": 153,
+											"name": "ADDRESS",
+											"source": 0
+										},
+										{
+											"begin": 58,
+											"end": 153,
+											"name": "EQ",
+											"source": 0
+										},
+										{
+											"begin": 58,
+											"end": 153,
+											"name": "PUSH",
+											"source": 0,
+											"value": "80"
+										},
+										{
+											"begin": 58,
+											"end": 153,
+											"name": "PUSH",
+											"source": 0,
+											"value": "40"
+										},
+										{
+											"begin": 58,
+											"end": 153,
+											"name": "MSTORE",
+											"source": 0
+										},
+										{
+											"begin": 58,
+											"end": 153,
+											"name": "PUSH",
+											"source": 0,
+											"value": "0"
+										},
+										{
+											"begin": 58,
+											"end": 153,
+											"name": "DUP1",
+											"source": 0
+										},
+										{
+											"begin": 58,
+											"end": 153,
+											"name": "REVERT",
+											"source": 0
+										}
+									]
+								}
+							},
+							"sourceList": [
+								"Voting/libraries/Enums.sol",
+								"Voting/libraries/Models.sol",
+								"#utility.yul"
+							]
+						},
+						"methodIdentifiers": {}
+					},
+					"metadata": "{\"compiler\":{\"version\":\"0.8.21+commit.d9974bed\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"Voting/libraries/Enums.sol\":\"Enums\"},\"evmVersion\":\"shanghai\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"Voting/libraries/Enums.sol\":{\"keccak256\":\"0x0a919a3ba950a0b69d5674b87c3684d13b4353970078e87730b6b427dfa73792\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://746ae7796d81595df793ceb956bed00f3f316ece3608d33e1e81e94b6d3d0b26\",\"dweb:/ipfs/QmP8HfgNvs8kwu6XJVStx8HiZqCTgH3eJe789D67WNSFvD\"]}},\"version\":1}",
+					"storageLayout": {
+						"storage": [],
+						"types": null
+					},
+					"userdoc": {
+						"kind": "user",
+						"methods": {},
+						"version": 1
+					}
+				}
+			},
+			"Voting/libraries/Models.sol": {
+				"Models": {
+					"abi": [],
+					"devdoc": {
+						"kind": "dev",
+						"methods": {},
+						"version": 1
+					},
+					"evm": {
+						"assembly": "    /* \"Voting/libraries/Models.sol\":81:524  library Models {... */\n  dataSize(sub_0)\n  dataOffset(sub_0)\n  0x0b\n  dup3\n  dup3\n  dup3\n  codecopy\n  dup1\n  mload\n  0x00\n  byte\n  0x73\n  eq\n  tag_1\n  jumpi\n  mstore(0x00, 0x4e487b7100000000000000000000000000000000000000000000000000000000)\n  mstore(0x04, 0x00)\n  revert(0x00, 0x24)\ntag_1:\n  mstore(0x00, address)\n  0x73\n  dup2\n  mstore8\n  dup3\n  dup2\n  return\nstop\n\nsub_0: assembly {\n        /* \"Voting/libraries/Models.sol\":81:524  library Models {... */\n      eq(address, deployTimeAddress())\n      mstore(0x40, 0x80)\n      0x00\n      dup1\n      revert\n\n    auxdata: 0xa26469706673582212201c3d56c7ac6b2125dbe8b6ef1992e435e1009acdba8f57cb763e8f0478cb441064736f6c63430008150033\n}\n",
+						"bytecode": {
+							"functionDebugData": {},
+							"generatedSources": [],
+							"linkReferences": {},
+							"object": "6055604b600b8282823980515f1a607314603f577f4e487b71000000000000000000000000000000000000000000000000000000005f525f60045260245ffd5b305f52607381538281f3fe730000000000000000000000000000000000000000301460806040525f80fdfea26469706673582212201c3d56c7ac6b2125dbe8b6ef1992e435e1009acdba8f57cb763e8f0478cb441064736f6c63430008150033",
+							"opcodes": "PUSH1 0x55 PUSH1 0x4B PUSH1 0xB DUP3 DUP3 DUP3 CODECOPY DUP1 MLOAD PUSH0 BYTE PUSH1 0x73 EQ PUSH1 0x3F JUMPI PUSH32 0x4E487B7100000000000000000000000000000000000000000000000000000000 PUSH0 MSTORE PUSH0 PUSH1 0x4 MSTORE PUSH1 0x24 PUSH0 REVERT JUMPDEST ADDRESS PUSH0 MSTORE PUSH1 0x73 DUP2 MSTORE8 DUP3 DUP2 RETURN INVALID PUSH20 0x0 ADDRESS EQ PUSH1 0x80 PUSH1 0x40 MSTORE PUSH0 DUP1 REVERT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 SHR RETURNDATASIZE JUMP 0xC7 0xAC PUSH12 0x2125DBE8B6EF1992E435E100 SWAP11 0xCD 0xBA DUP16 JUMPI 0xCB PUSH23 0x3E8F0478CB441064736F6C634300081500330000000000 ",
+							"sourceMap": "81:443:1:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+						},
+						"deployedBytecode": {
+							"functionDebugData": {},
+							"generatedSources": [],
+							"immutableReferences": {},
+							"linkReferences": {},
+							"object": "730000000000000000000000000000000000000000301460806040525f80fdfea26469706673582212201c3d56c7ac6b2125dbe8b6ef1992e435e1009acdba8f57cb763e8f0478cb441064736f6c63430008150033",
+							"opcodes": "PUSH20 0x0 ADDRESS EQ PUSH1 0x80 PUSH1 0x40 MSTORE PUSH0 DUP1 REVERT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 SHR RETURNDATASIZE JUMP 0xC7 0xAC PUSH12 0x2125DBE8B6EF1992E435E100 SWAP11 0xCD 0xBA DUP16 JUMPI 0xCB PUSH23 0x3E8F0478CB441064736F6C634300081500330000000000 ",
+							"sourceMap": "81:443:1:-:0;;;;;;;;"
+						},
+						"gasEstimates": {
+							"creation": {
+								"codeDepositCost": "17000",
+								"executionCost": "92",
+								"totalCost": "17092"
+							}
+						},
+						"legacyAssembly": {
+							".code": [
+								{
+									"begin": 81,
+									"end": 524,
+									"name": "PUSH #[$]",
+									"source": 1,
+									"value": "0000000000000000000000000000000000000000000000000000000000000000"
+								},
+								{
+									"begin": 81,
+									"end": 524,
+									"name": "PUSH [$]",
+									"source": 1,
+									"value": "0000000000000000000000000000000000000000000000000000000000000000"
+								},
+								{
+									"begin": 81,
+									"end": 524,
+									"name": "PUSH",
+									"source": 1,
+									"value": "B"
+								},
+								{
+									"begin": 81,
+									"end": 524,
+									"name": "DUP3",
+									"source": 1
+								},
+								{
+									"begin": 81,
+									"end": 524,
+									"name": "DUP3",
+									"source": 1
+								},
+								{
+									"begin": 81,
+									"end": 524,
+									"name": "DUP3",
+									"source": 1
+								},
+								{
+									"begin": 81,
+									"end": 524,
+									"name": "CODECOPY",
+									"source": 1
+								},
+								{
+									"begin": 81,
+									"end": 524,
+									"name": "DUP1",
+									"source": 1
+								},
+								{
+									"begin": 81,
+									"end": 524,
+									"name": "MLOAD",
+									"source": 1
+								},
+								{
+									"begin": 81,
+									"end": 524,
+									"name": "PUSH",
+									"source": 1,
+									"value": "0"
+								},
+								{
+									"begin": 81,
+									"end": 524,
+									"name": "BYTE",
+									"source": 1
+								},
+								{
+									"begin": 81,
+									"end": 524,
+									"name": "PUSH",
+									"source": 1,
+									"value": "73"
+								},
+								{
+									"begin": 81,
+									"end": 524,
+									"name": "EQ",
+									"source": 1
+								},
+								{
+									"begin": 81,
+									"end": 524,
+									"name": "PUSH [tag]",
+									"source": 1,
+									"value": "1"
+								},
+								{
+									"begin": 81,
+									"end": 524,
+									"name": "JUMPI",
+									"source": 1
+								},
+								{
+									"begin": 81,
+									"end": 524,
+									"name": "PUSH",
+									"source": 1,
+									"value": "4E487B7100000000000000000000000000000000000000000000000000000000"
+								},
+								{
+									"begin": 81,
+									"end": 524,
+									"name": "PUSH",
+									"source": 1,
+									"value": "0"
+								},
+								{
+									"begin": 81,
+									"end": 524,
+									"name": "MSTORE",
+									"source": 1
+								},
+								{
+									"begin": 81,
+									"end": 524,
+									"name": "PUSH",
+									"source": 1,
+									"value": "0"
+								},
+								{
+									"begin": 81,
+									"end": 524,
+									"name": "PUSH",
+									"source": 1,
+									"value": "4"
+								},
+								{
+									"begin": 81,
+									"end": 524,
+									"name": "MSTORE",
+									"source": 1
+								},
+								{
+									"begin": 81,
+									"end": 524,
+									"name": "PUSH",
+									"source": 1,
+									"value": "24"
+								},
+								{
+									"begin": 81,
+									"end": 524,
+									"name": "PUSH",
+									"source": 1,
+									"value": "0"
+								},
+								{
+									"begin": 81,
+									"end": 524,
+									"name": "REVERT",
+									"source": 1
+								},
+								{
+									"begin": 81,
+									"end": 524,
+									"name": "tag",
+									"source": 1,
+									"value": "1"
+								},
+								{
+									"begin": 81,
+									"end": 524,
+									"name": "JUMPDEST",
+									"source": 1
+								},
+								{
+									"begin": 81,
+									"end": 524,
+									"name": "ADDRESS",
+									"source": 1
+								},
+								{
+									"begin": 81,
+									"end": 524,
+									"name": "PUSH",
+									"source": 1,
+									"value": "0"
+								},
+								{
+									"begin": 81,
+									"end": 524,
+									"name": "MSTORE",
+									"source": 1
+								},
+								{
+									"begin": 81,
+									"end": 524,
+									"name": "PUSH",
+									"source": 1,
+									"value": "73"
+								},
+								{
+									"begin": 81,
+									"end": 524,
+									"name": "DUP2",
+									"source": 1
+								},
+								{
+									"begin": 81,
+									"end": 524,
+									"name": "MSTORE8",
+									"source": 1
+								},
+								{
+									"begin": 81,
+									"end": 524,
+									"name": "DUP3",
+									"source": 1
+								},
+								{
+									"begin": 81,
+									"end": 524,
+									"name": "DUP2",
+									"source": 1
+								},
+								{
+									"begin": 81,
+									"end": 524,
+									"name": "RETURN",
+									"source": 1
+								}
+							],
+							".data": {
+								"0": {
+									".auxdata": "a26469706673582212201c3d56c7ac6b2125dbe8b6ef1992e435e1009acdba8f57cb763e8f0478cb441064736f6c63430008150033",
+									".code": [
+										{
+											"begin": 81,
+											"end": 524,
+											"name": "PUSHDEPLOYADDRESS",
+											"source": 1
+										},
+										{
+											"begin": 81,
+											"end": 524,
+											"name": "ADDRESS",
+											"source": 1
+										},
+										{
+											"begin": 81,
+											"end": 524,
+											"name": "EQ",
+											"source": 1
+										},
+										{
+											"begin": 81,
+											"end": 524,
+											"name": "PUSH",
+											"source": 1,
+											"value": "80"
+										},
+										{
+											"begin": 81,
+											"end": 524,
+											"name": "PUSH",
+											"source": 1,
+											"value": "40"
+										},
+										{
+											"begin": 81,
+											"end": 524,
+											"name": "MSTORE",
+											"source": 1
+										},
+										{
+											"begin": 81,
+											"end": 524,
+											"name": "PUSH",
+											"source": 1,
+											"value": "0"
+										},
+										{
+											"begin": 81,
+											"end": 524,
+											"name": "DUP1",
+											"source": 1
+										},
+										{
+											"begin": 81,
+											"end": 524,
+											"name": "REVERT",
+											"source": 1
+										}
+									]
+								}
+							},
+							"sourceList": [
+								"Voting/libraries/Enums.sol",
+								"Voting/libraries/Models.sol",
+								"#utility.yul"
+							]
+						},
+						"methodIdentifiers": {}
+					},
+					"metadata": "{\"compiler\":{\"version\":\"0.8.21+commit.d9974bed\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"Voting/libraries/Models.sol\":\"Models\"},\"evmVersion\":\"shanghai\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"Voting/libraries/Enums.sol\":{\"keccak256\":\"0x0a919a3ba950a0b69d5674b87c3684d13b4353970078e87730b6b427dfa73792\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://746ae7796d81595df793ceb956bed00f3f316ece3608d33e1e81e94b6d3d0b26\",\"dweb:/ipfs/QmP8HfgNvs8kwu6XJVStx8HiZqCTgH3eJe789D67WNSFvD\"]},\"Voting/libraries/Models.sol\":{\"keccak256\":\"0xeb9b19b23c82856ac1a107b22631d2c4225b133eb5eaf0491c83f6a5fe260bb9\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7f940858b98a90f9562444d5c91394f33685c2b9ef5f7cd2d39d9cae7d8e0675\",\"dweb:/ipfs/QmPoQuYYR9QApBWYdnAPDiVPGKaCKx8a2XHVHtRovDTgmh\"]}},\"version\":1}",
+					"storageLayout": {
+						"storage": [],
+						"types": null
+					},
+					"userdoc": {
+						"kind": "user",
+						"methods": {},
+						"version": 1
+					}
+				}
+			}
+		},
+		"sources": {
+			"Voting/libraries/Enums.sol": {
+				"ast": {
+					"absolutePath": "Voting/libraries/Enums.sol",
+					"exportedSymbols": {
+						"Enums": [
+							6
+						]
+					},
+					"id": 7,
+					"license": "MIT",
+					"nodeType": "SourceUnit",
+					"nodes": [
+						{
+							"id": 1,
+							"literals": [
+								"solidity",
+								"^",
+								"0.8",
+								".17"
+							],
+							"nodeType": "PragmaDirective",
+							"src": "32:24:0"
+						},
+						{
+							"abstract": false,
+							"baseContracts": [],
+							"canonicalName": "Enums",
+							"contractDependencies": [],
+							"contractKind": "library",
+							"fullyImplemented": true,
+							"id": 6,
+							"linearizedBaseContracts": [
+								6
+							],
+							"name": "Enums",
+							"nameLocation": "66:5:0",
+							"nodeType": "ContractDefinition",
+							"nodes": [
+								{
+									"canonicalName": "Enums.VoteEntry",
+									"id": 5,
+									"members": [
+										{
+											"id": 2,
+											"name": "Agree",
+											"nameLocation": "104:5:0",
+											"nodeType": "EnumValue",
+											"src": "104:5:0"
+										},
+										{
+											"id": 3,
+											"name": "Disagree",
+											"nameLocation": "119:8:0",
+											"nodeType": "EnumValue",
+											"src": "119:8:0"
+										},
+										{
+											"id": 4,
+											"name": "Abstain",
+											"nameLocation": "137:7:0",
+											"nodeType": "EnumValue",
+											"src": "137:7:0"
+										}
+									],
+									"name": "VoteEntry",
+									"nameLocation": "84:9:0",
+									"nodeType": "EnumDefinition",
+									"src": "79:71:0"
+								}
+							],
+							"scope": 7,
+							"src": "58:95:0",
+							"usedErrors": [],
+							"usedEvents": []
+						}
+					],
+					"src": "32:121:0"
+				},
+				"id": 0
+			},
+			"Voting/libraries/Models.sol": {
+				"ast": {
+					"absolutePath": "Voting/libraries/Models.sol",
+					"exportedSymbols": {
+						"Enums": [
+							6
+						],
+						"Models": [
+							41
+						]
+					},
+					"id": 42,
+					"license": "MIT",
+					"nodeType": "SourceUnit",
+					"nodes": [
+						{
+							"id": 8,
+							"literals": [
+								"solidity",
+								"^",
+								"0.8",
+								".17"
+							],
+							"nodeType": "PragmaDirective",
+							"src": "32:24:1"
+						},
+						{
+							"absolutePath": "Voting/libraries/Enums.sol",
+							"file": "./Enums.sol",
+							"id": 9,
+							"nameLocation": "-1:-1:-1",
+							"nodeType": "ImportDirective",
+							"scope": 42,
+							"sourceUnit": 7,
+							"src": "58:21:1",
+							"symbolAliases": [],
+							"unitAlias": ""
+						},
+						{
+							"abstract": false,
+							"baseContracts": [],
+							"canonicalName": "Models",
+							"contractDependencies": [],
+							"contractKind": "library",
+							"fullyImplemented": true,
+							"id": 41,
+							"linearizedBaseContracts": [
+								41
+							],
+							"name": "Models",
+							"nameLocation": "89:6:1",
+							"nodeType": "ContractDefinition",
+							"nodes": [
+								{
+									"canonicalName": "Models.Proposal",
+									"id": 27,
+									"members": [
+										{
+											"constant": false,
+											"id": 11,
+											"mutability": "mutable",
+											"name": "metadata",
+											"nameLocation": "136:8:1",
+											"nodeType": "VariableDeclaration",
+											"scope": 27,
+											"src": "129:15:1",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_string_storage_ptr",
+												"typeString": "string"
+											},
+											"typeName": {
+												"id": 10,
+												"name": "string",
+												"nodeType": "ElementaryTypeName",
+												"src": "129:6:1",
+												"typeDescriptions": {
+													"typeIdentifier": "t_string_storage_ptr",
+													"typeString": "string"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 13,
+											"mutability": "mutable",
+											"name": "createdOn",
+											"nameLocation": "162:9:1",
+											"nodeType": "VariableDeclaration",
+											"scope": 27,
+											"src": "154:17:1",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_uint256",
+												"typeString": "uint256"
+											},
+											"typeName": {
+												"id": 12,
+												"name": "uint256",
+												"nodeType": "ElementaryTypeName",
+												"src": "154:7:1",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint256",
+													"typeString": "uint256"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 15,
+											"mutability": "mutable",
+											"name": "startedOn",
+											"nameLocation": "189:9:1",
+											"nodeType": "VariableDeclaration",
+											"scope": 27,
+											"src": "181:17:1",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_uint256",
+												"typeString": "uint256"
+											},
+											"typeName": {
+												"id": 14,
+												"name": "uint256",
+												"nodeType": "ElementaryTypeName",
+												"src": "181:7:1",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint256",
+													"typeString": "uint256"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 17,
+											"mutability": "mutable",
+											"name": "endedOn",
+											"nameLocation": "216:7:1",
+											"nodeType": "VariableDeclaration",
+											"scope": 27,
+											"src": "208:15:1",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_uint256",
+												"typeString": "uint256"
+											},
+											"typeName": {
+												"id": 16,
+												"name": "uint256",
+												"nodeType": "ElementaryTypeName",
+												"src": "208:7:1",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint256",
+													"typeString": "uint256"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 19,
+											"mutability": "mutable",
+											"name": "executedOn",
+											"nameLocation": "241:10:1",
+											"nodeType": "VariableDeclaration",
+											"scope": 27,
+											"src": "233:18:1",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_uint256",
+												"typeString": "uint256"
+											},
+											"typeName": {
+												"id": 18,
+												"name": "uint256",
+												"nodeType": "ElementaryTypeName",
+												"src": "233:7:1",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint256",
+													"typeString": "uint256"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 21,
+											"mutability": "mutable",
+											"name": "creator",
+											"nameLocation": "269:7:1",
+											"nodeType": "VariableDeclaration",
+											"scope": 27,
+											"src": "261:15:1",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_address",
+												"typeString": "address"
+											},
+											"typeName": {
+												"id": 20,
+												"name": "address",
+												"nodeType": "ElementaryTypeName",
+												"src": "261:7:1",
+												"stateMutability": "nonpayable",
+												"typeDescriptions": {
+													"typeIdentifier": "t_address",
+													"typeString": "address"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 24,
+											"mutability": "mutable",
+											"name": "voters",
+											"nameLocation": "296:6:1",
+											"nodeType": "VariableDeclaration",
+											"scope": 27,
+											"src": "286:16:1",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+												"typeString": "address[]"
+											},
+											"typeName": {
+												"baseType": {
+													"id": 22,
+													"name": "address",
+													"nodeType": "ElementaryTypeName",
+													"src": "286:7:1",
+													"stateMutability": "nonpayable",
+													"typeDescriptions": {
+														"typeIdentifier": "t_address",
+														"typeString": "address"
+													}
+												},
+												"id": 23,
+												"nodeType": "ArrayTypeName",
+												"src": "286:9:1",
+												"typeDescriptions": {
+													"typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+													"typeString": "address[]"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 26,
+											"mutability": "mutable",
+											"name": "treasurySummary",
+											"nameLocation": "319:15:1",
+											"nodeType": "VariableDeclaration",
+											"scope": 27,
+											"src": "312:22:1",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_string_storage_ptr",
+												"typeString": "string"
+											},
+											"typeName": {
+												"id": 25,
+												"name": "string",
+												"nodeType": "ElementaryTypeName",
+												"src": "312:6:1",
+												"typeDescriptions": {
+													"typeIdentifier": "t_string_storage_ptr",
+													"typeString": "string"
+												}
+											},
+											"visibility": "internal"
+										}
+									],
+									"name": "Proposal",
+									"nameLocation": "110:8:1",
+									"nodeType": "StructDefinition",
+									"scope": 41,
+									"src": "103:238:1",
+									"visibility": "public"
+								},
+								{
+									"canonicalName": "Models.TreasureHistory",
+									"id": 40,
+									"members": [
+										{
+											"constant": false,
+											"id": 29,
+											"mutability": "mutable",
+											"name": "amount",
+											"nameLocation": "388:6:1",
+											"nodeType": "VariableDeclaration",
+											"scope": 40,
+											"src": "380:14:1",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_uint256",
+												"typeString": "uint256"
+											},
+											"typeName": {
+												"id": 28,
+												"name": "uint256",
+												"nodeType": "ElementaryTypeName",
+												"src": "380:7:1",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint256",
+													"typeString": "uint256"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 31,
+											"mutability": "mutable",
+											"name": "timestamp",
+											"nameLocation": "412:9:1",
+											"nodeType": "VariableDeclaration",
+											"scope": 40,
+											"src": "404:17:1",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_uint256",
+												"typeString": "uint256"
+											},
+											"typeName": {
+												"id": 30,
+												"name": "uint256",
+												"nodeType": "ElementaryTypeName",
+												"src": "404:7:1",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint256",
+													"typeString": "uint256"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 33,
+											"mutability": "mutable",
+											"name": "summary",
+											"nameLocation": "438:7:1",
+											"nodeType": "VariableDeclaration",
+											"scope": 40,
+											"src": "431:14:1",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_string_storage_ptr",
+												"typeString": "string"
+											},
+											"typeName": {
+												"id": 32,
+												"name": "string",
+												"nodeType": "ElementaryTypeName",
+												"src": "431:6:1",
+												"typeDescriptions": {
+													"typeIdentifier": "t_string_storage_ptr",
+													"typeString": "string"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 35,
+											"mutability": "mutable",
+											"name": "direction",
+											"nameLocation": "463:9:1",
+											"nodeType": "VariableDeclaration",
+											"scope": 40,
+											"src": "455:17:1",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_uint256",
+												"typeString": "uint256"
+											},
+											"typeName": {
+												"id": 34,
+												"name": "uint256",
+												"nodeType": "ElementaryTypeName",
+												"src": "455:7:1",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint256",
+													"typeString": "uint256"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 37,
+											"mutability": "mutable",
+											"name": "from",
+											"nameLocation": "490:4:1",
+											"nodeType": "VariableDeclaration",
+											"scope": 40,
+											"src": "482:12:1",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_address",
+												"typeString": "address"
+											},
+											"typeName": {
+												"id": 36,
+												"name": "address",
+												"nodeType": "ElementaryTypeName",
+												"src": "482:7:1",
+												"stateMutability": "nonpayable",
+												"typeDescriptions": {
+													"typeIdentifier": "t_address",
+													"typeString": "address"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 39,
+											"mutability": "mutable",
+											"name": "to",
+											"nameLocation": "512:2:1",
+											"nodeType": "VariableDeclaration",
+											"scope": 40,
+											"src": "504:10:1",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_address",
+												"typeString": "address"
+											},
+											"typeName": {
+												"id": 38,
+												"name": "address",
+												"nodeType": "ElementaryTypeName",
+												"src": "504:7:1",
+												"stateMutability": "nonpayable",
+												"typeDescriptions": {
+													"typeIdentifier": "t_address",
+													"typeString": "address"
+												}
+											},
+											"visibility": "internal"
+										}
+									],
+									"name": "TreasureHistory",
+									"nameLocation": "354:15:1",
+									"nodeType": "StructDefinition",
+									"scope": 41,
+									"src": "347:174:1",
+									"visibility": "public"
+								}
+							],
+							"scope": 42,
+							"src": "81:443:1",
+							"usedErrors": [],
+							"usedEvents": []
+						}
+					],
+					"src": "32:492:1"
+				},
+				"id": 1
+			}
+		}
+	}
+}

@@ -1,0 +1,53 @@
+{
+	"compiler": {
+		"version": "0.8.21+commit.d9974bed"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Voting/libraries/Models.sol": "Models"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Voting/libraries/Enums.sol": {
+			"keccak256": "0x0a919a3ba950a0b69d5674b87c3684d13b4353970078e87730b6b427dfa73792",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://746ae7796d81595df793ceb956bed00f3f316ece3608d33e1e81e94b6d3d0b26",
+				"dweb:/ipfs/QmP8HfgNvs8kwu6XJVStx8HiZqCTgH3eJe789D67WNSFvD"
+			]
+		},
+		"Voting/libraries/Models.sol": {
+			"keccak256": "0xeb9b19b23c82856ac1a107b22631d2c4225b133eb5eaf0491c83f6a5fe260bb9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7f940858b98a90f9562444d5c91394f33685c2b9ef5f7cd2d39d9cae7d8e0675",
+				"dweb:/ipfs/QmPoQuYYR9QApBWYdnAPDiVPGKaCKx8a2XHVHtRovDTgmh"
+			]
+		}
+	},
+	"version": 1
+}
